@@ -1,0 +1,15 @@
+<h1>Mom</h1>
+<div>
+  dirty: {{ familyService.dirty() }}
+  <button (click)="familyService.dirty.set(familyService.dirty()+1)">Add</button>
+</div>
+<div>
+  numVal: {{ familyService.numVal }}
+  <button (click)="familyService.numVal = familyService.numVal + 1">Add</button>
+</div>
+
+<h2>Children</h2>
+<div style="display: flex; gap: 10px;">
+<app-first-born></app-first-born>
+<app-baby></app-baby>
+</div>

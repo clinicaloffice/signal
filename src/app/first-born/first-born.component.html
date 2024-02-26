@@ -1,0 +1,10 @@
+<p>Baby</p>
+<div>
+  dirty: {{ familyService.dirty() }}
+  <button (click)="familyService.dirty.set(familyService.dirty()+1)">Add</button>
+</div>
+<div>
+  numVal: {{ familyService.numVal }}
+  <button (click)="familyService.numVal = familyService.numVal + 1">Add</button>
+</div>
+
