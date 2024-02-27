@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, computed} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, computed, effect} from '@angular/core';
 import {FamilyService} from "../family.service";
 
 @Component({
@@ -8,13 +8,16 @@ import {FamilyService} from "../family.service";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BabyComponent {
-  public changes = computed(() => {
-    console.log(this.familyService.dirty);
-    console.log('Baby Changed');
-    this.cdr.detectChanges();
-  })
 
   constructor(public cdr: ChangeDetectorRef, public familyService: FamilyService) {
+    effect(() => {
+      console.log('In baby effect');
+
+      this.familyService.dirty();
+
+      this.cdr.detectChanges();
+    });
+
   }
 
 }
